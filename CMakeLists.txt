@@ -20,6 +20,17 @@ set(MAIN_SOURCES
         src/scoring.cpp
         src/graphman.cpp)
 
+set(LIBRARY_SOURCES
+        src/graph.cpp
+        src/utils.cpp
+        src/varfile.cpp
+        src/sim.cpp
+        src/fasta.cpp
+        src/sam.cpp
+        src/align_main.cpp
+        src/scoring.cpp
+        src/graphman.cpp)
+
 set(HEADERS
         include/alignment.h
         include/dyn_bitset.h
@@ -57,6 +68,7 @@ else()
 endif()
 
 add_executable(vargas ${MAIN_SOURCES})
+add_library(vargas_lib ${LIBRARY_SOURCES})
 target_link_libraries(vargas hts)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
